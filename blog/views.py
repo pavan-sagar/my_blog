@@ -8,7 +8,7 @@ posts = [
 
 {
 'author':'Pavan',
-'title':'First blog post',
+'title':'First blogz post',
 'date_posted':'06.03.2019',
 'content':'This is my post regarding the django blog'
 },
