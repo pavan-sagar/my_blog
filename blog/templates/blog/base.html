@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +54,13 @@
 <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+            {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{message.tags}}"> <!-- We are passing the message from the users.views and the tags attribute decides whether its an success,failure,info or debig kind of message -->
+                {{message}}
+              </div>
+            {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">
