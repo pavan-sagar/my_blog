@@ -6,7 +6,7 @@
             {% csrf_token %} <!-- This is to protect from cross site forgery attack protection-->
             <fieldset class="form-group">
                 <legend class="form-group">Log In</legend>
-                {{form|crispy}} <!-- The will style the register page in a nice bootstrap 4 way-->
+                {{form|crispy}}<!-- The will style the register page in a nice bootstrap 4 way-->
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Login</button>
