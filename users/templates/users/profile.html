@@ -9,6 +9,16 @@
           <p class="text-secondary">{{ user.email }}</p>
         </div>
       </div>
-      <!-- FORM HERE -->
+      <form method="POST" enctype="multipart/form-data"> <!-- The enctype attribute makes sure image data is properly passed and handled-->
+        {% csrf_token %} <!-- This is to protect from cross site forgery attack protection-->
+        <fieldset class="form-group">
+            <legend class="form-group">Profile Info</legend>
+            {{u_form|crispy}} <!-- The will style the register page in a nice bootstrap 4 way-->
+            {{p_form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
     </div>
 {% endblock content %}
