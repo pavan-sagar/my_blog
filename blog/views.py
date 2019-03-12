@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     DetailView, 
@@ -27,6 +28,17 @@ class PostListView(ListView):
     template_name = 'blog/home.html' #default required path is <app name>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-date_posted'] # The negative sign means in descending order
+    paginate_by = 2
+
+class UserPostListView(ListView):  #This is the filterd posts view
+    model = Post
+    template_name = 'blog/user_posts.html'  
+    context_object_name = 'posts'
+    paginate_by = 2
+
+    def get_queryset(self): #Queryset for the above 'model' is filtered based on the username/author argument from calling ur;
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_posted')
 
 class PostDetailView(DetailView):
     model = Post
