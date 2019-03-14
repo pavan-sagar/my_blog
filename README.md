@@ -1,4 +1,4 @@
-My Django Blog
+<H2>My Django Blog</h2>
 
 This is a blog application I've created as part of learning Django.
 
