@@ -1,4 +1,5 @@
-# my_blog
+My Django Blog
+
 This is a blog application I've created as part of learning Django.
 
 This has the following functionalities :
